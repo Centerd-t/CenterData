@@ -66,7 +66,7 @@ import { environment } from '../environments/environment';
           },
           login: {
             requireValidToken: true, // check token required
-            endpoint: "login", // api end point for login check
+            endpoint: "api/Login", // api end point for login check
             method: "post", // method used to send
             redirect: {
               success: "admin", //redirect after successfull login
@@ -113,7 +113,7 @@ import { environment } from '../environments/environment';
         login: {
           redirectDelay: 0, // delay before redirect after a successful login, while success message is shown to the user
           strategy: "username", // strategy id key.
-          rememberMe: true, // whether to show or not the `rememberMe` checkbox
+          // rememberMe: true, // whether to show or not the `rememberMe` checkbox
           showMessages: {
             // show/not show success/error messages
             success: true,

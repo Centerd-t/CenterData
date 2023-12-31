@@ -40,11 +40,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   currentTheme = 'default';
 
   userMenu: NbMenuItem[] = [
-    {
-      title: 'Profile',
-      link: '',
-      icon: 'person-outline',
-    },
+    // {
+    //   title: 'Profile',
+    //   link: '',
+    //   icon: 'person-outline',
+    // },
     {
       title: 'Log out',
       link: '/auth/admin/logout',

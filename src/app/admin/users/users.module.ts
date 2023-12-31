@@ -42,18 +42,18 @@ import {ButtonModule} from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
+import { CalendarModule } from 'primeng/calendar';
+
 import { UsersRoutingModule } from './users-routing.module';
 import { UserListComponent } from './user-list/user-list.component';
-import { UserAddEditComponent } from './user-add-edit/user-add-edit.component';
-import { DialogDeleteComponent } from './user-list/dialog-delete.component';
-
 
 
 @NgModule({
-  declarations: [UserListComponent, UserAddEditComponent, DialogDeleteComponent, ],
+  declarations: [UserListComponent],
   imports: [
     CommonModule,
     HttpClientModule,
+    CalendarModule,
     NbActionsModule,
     NbAlertModule,
     NbCalendarKitModule,

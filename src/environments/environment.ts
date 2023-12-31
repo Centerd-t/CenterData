@@ -10,5 +10,5 @@
 
 export const environment = {
   production: false,
-  apiUrl: "https://vewin.vewinpro.com/"
+  apiUrl: "https://localhost:7034/"
 };

@@ -2,23 +2,42 @@
 
     <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
     <nb-card-header>
-        <div class="row">
-            <div class="col-md-12 text-center bold-text">Users List</div>
-            <!-- <div class="col-md-2">
-                <button class="btn btn-sm btn-success" (click)="createUser()">Create User</button>
-            </div> -->
-        </div>
+<div class="card && text-center" >
+                <form [formGroup]="AddCenterDataForm" (ngSubmit)="onSubmit()"> <br>
+                    <div class="form-group row">
+                        <label for="date" class="label col-sm-4 col-form-label"> Enter Date and Time*</label>
+                        <div class="col-sm-3">
+                            <p-calendar [showTime]="true" [showSeconds]="false" [hourFormat]="12" formControlName="date"></p-calendar>
+                            <ng-container
+                                *ngIf="AddCenterDataForm.controls.date.touched && AddCenterDataForm.controls.date.errors">
+                                <p class="caption status-danger"
+                                    *ngIf="AddCenterDataForm.controls.date.errors.required">
+                                    Date is required </p>
+                            </ng-container>
+                        </div>
+                        <div class=" col-sm-2">
+                            <button type="submit" nbButton outline status="success" size="small"
+                                [disabled]="!AddCenterDataForm.valid">Submit</button>
+                        </div>
+
+                    </div>
+                </form>
+            </div> <br> 
+            <div class="row">
+                <div class="col-md-12 text-center bold-text"> CenterDate  List </div>
+            </div>
     </nb-card-header>
 
     <nb-card-body>
 
         <div class="card">
-            <p-table [value]="users" [paginator]="true" [rows]="rows" [showCurrentPageReport]="true" [autoLayout]="true"
+            <p-table [value]="users" [resizableColumns]="true" [scrollable]="true" scrollHeight="400px"
+                [paginator]="true" [rows]="rows" [showCurrentPageReport]="true" [autoLayout]="true"
                 [rowsPerPageOptions]="itemsPerPage">
                 <ng-template pTemplate="header">
                     <tr>
                         <ng-container *ngFor="let col of columns">
-                            <th *ngIf="col.show" [pSortableColumn]="(col.sort==true)? col.field:false"
+                            <th *ngIf="col.show" pResizableColumn [pSortableColumn]="(col.sort==true)? col.field:false"
                                 [class]="col.field+'-campaigns'" class="text-center">
                                 <p-sortIcon *ngIf="col.sort==true" [field]="col.field" class="sort-icon"
                                     [id]="col.field+'-sort'">
@@ -31,28 +50,14 @@
                 </ng-template>
                 <ng-template pTemplate="body" let-user>
                     <tr>
-                        <td class="text-center">{{user.name}}</td>
-                        <td class="text-center" style="width: 15%;">{{user.mobile}}</td>
-                        <td class="text-center">{{user.email}}</td>
-                        <td class="text-center">{{user.address}}</td>
-                        <td class="text-center">{{user.status}}</td>
+                        <td nbTooltip="{{ user.fileName }}" nbTooltipPlacement="top">{{user.fileName}}</td>
+                        <td nbTooltip="{{ user.date }}" nbTooltipPlacement="top">{{user.date | date: 'dd/MM/yyyy' }}</td>
                         <td class="text-center action">
-                            <button (click)="editUser(user)" routerLinkActive="router-link-active" nbTooltip="Edit"
-                                nbTooltipPlacement="top" class="btn btn-outline-primary btn-sm action-button">
-                                <nb-icon icon="edit" pack="eva" class="action-icons"></nb-icon>
+                            <button (click)="ondownloadFile(user.fileName, user.byteCode)" nbTooltip="Download"
+                                nbTooltipPlacement="top" class="btn btn-outline-success btn-sm action-button">
+                                Download
+                                <nb-icon icon="download-outline" pack="eva" class="action-icons"></nb-icon>
                             </button>&nbsp;
-                            <button nbTooltip="Delete" (click)="confirmDelete(user)" nbTooltipPlacement="top"
-                                class="btn btn-outline-danger btn-sm action-button">
-                                <nb-icon icon="close-circle-outline" pack="eva" class="action-icons"></nb-icon>
-                            </button>&nbsp;
-                            <button [nbTooltip]="user.status == 'Active' ? 'Block' : 'Unblock'"
-                                (click)="confirmBlockUnBlock(user, user.status == 'Active' ? 'Block' : 'UnBlock' )"
-                                nbTooltipPlacement="top"
-                                [ngClass]="user.status =='Active' ? 'btn btn-outline-danger btn-sm action-button':'btn btn-outline-success btn-sm action-button'">
-                                <nb-icon [icon]="user.status =='Active' ? 'lock-outline':'unlock-outline'" pack="eva"
-                                    class="action-icons"></nb-icon>
-                            </button>&nbsp;
-
                         </td>
                     </tr>
                 </ng-template>
@@ -60,3 +65,9 @@
         </div>
     </nb-card-body>
 </nb-card>
+<!-- <ul> 
+  <li *ngFor="let file of users">
+    {{ file.fileName }}
+    <button (click)="downloadFile(file.fileName, file.byteCode)">Download</button>
+  </li>
+</ul> -->

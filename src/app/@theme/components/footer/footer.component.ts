@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./footer.component.scss'],
   template: `
     <span class="created-by">
-      <b>© 2023 VeWin.</b>
+      <b>© 2023 CenterData.</b>
     </span>
     <div class="socials">
       <a href="#" target="_blank" class="ion ion-social-github"></a>

@@ -1,6 +1,6 @@
 
 <h1 id="title" class="title">Login</h1>
-<p class="sub-title">Hello! Log in with your Mobile Number and Password.</p>
+<p class="sub-title">Hello! Log in with your User Name  and Password.</p>
 
 <nb-alert *ngIf="showMessages.error && errors?.length && !submitted" outline="danger" role="alert">
 <!--   <p class="alert-title"><b>Oh snap!</b></p>
@@ -18,15 +18,15 @@
 <form (ngSubmit)="login()" #loginform="ngForm" aria-labelledby="title">
 
   <div class="form-control-group">
-    <label class="label Mobile" for="input-mobile"> Mobile Number:</label>
-    <input nbInput fullWidth [(ngModel)]="user.mobile" #mobile="ngModel" name="mobile" id="input-mobile" 
-      placeholder="Mobile Number" fieldSize="large" autofocus
-      [status]="mobile.dirty ? (mobile.invalid  ? 'danger' : 'success') : ''"
-      [required]="getConfigValue('forms.validation.mobile.required')"
-      [attr.aria-invalid]="mobile.invalid && mobile.touched ? true : null">
-    <ng-container *ngIf="mobile.invalid && mobile.touched">
-      <p class="caption status-danger" *ngIf="mobile.errors?.required">
-        Mobile Number required!
+    <label class="label UserName" for="input-username">  User Name:</label>
+    <input nbInput fullWidth [(ngModel)]="user.username" #username="ngModel" name="username" id="input-username" 
+      placeholder="User Name " fieldSize="large" autofocus
+      [status]="username.dirty ? (username.invalid  ? 'danger' : 'success') : ''"
+      [required]="getConfigValue('forms.validation.username.required')"
+      [attr.aria-invalid]="username.invalid && username.touched ? true : null">
+    <ng-container *ngIf="username.invalid && username.touched">
+      <p class="caption status-danger" *ngIf="username.errors?.required">
+        User Name  required!
       </p>
     </ng-container>
   </div>
@@ -34,7 +34,6 @@
   <div class="form-control-group">
     <span class="label-with-link">
       <label class="label Password" for="input-password">Password:</label>
-      <a class="forgot-password caption-2" routerLink="/auth/{{forget_path}}/request-password">Forgot Password?</a>
     </span>
     <input nbInput fullWidth [(ngModel)]="user.password" #password="ngModel" name="password" type="password"
       id="input-password" placeholder="Password" fieldSize="large"
@@ -54,10 +53,6 @@
         characters
       </p>
     </ng-container>
-  </div>
-
-  <div class="form-control-group accept-group">
-    <nb-checkbox name="rememberMe"  [(ngModel)]="user.rememberMe" *ngIf="rememberMe"><span class="rememberMe">Remember me</span></nb-checkbox>
   </div>
 
   <button nbButton fullWidth status="primary" size="large" 
