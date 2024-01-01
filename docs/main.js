@@ -4581,8 +4581,8 @@ const routes = [
         loadChildren: () => Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ./auth/auth.module */ 1674))
             .then(m => m.NgxAuthModule),
     },
-    { path: '', redirectTo: 'auth', pathMatch: 'full' },
-    { path: '**', redirectTo: 'auth' },
+    { path: '', redirectTo: 'admin', pathMatch: 'full' },
+    { path: '**', redirectTo: 'admin' },
 ];
 const config = {
     useHash: false,
