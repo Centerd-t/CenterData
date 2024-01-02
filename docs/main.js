@@ -4581,8 +4581,8 @@ const routes = [
         loadChildren: () => Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ./auth/auth.module */ 1674))
             .then(m => m.NgxAuthModule),
     },
-    { path: '', redirectTo: 'auth', pathMatch: 'full' },
-    { path: '**', redirectTo: 'auth' },
+    { path: '', redirectTo: 'admin', pathMatch: 'full' },
+    { path: '**', redirectTo: 'admin' },
 ];
 const config = {
     useHash: false,
@@ -4721,6 +4721,7 @@ AppModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_12__["ɵ�
             _nebular_theme__WEBPACK_IMPORTED_MODULE_17__.NbSidebarModule.forRoot(),
             _nebular_theme__WEBPACK_IMPORTED_MODULE_17__.NbMenuModule.forRoot(),
             _nebular_theme__WEBPACK_IMPORTED_MODULE_17__.NbDatepickerModule.forRoot(),
+            _nebular_theme__WEBPACK_IMPORTED_MODULE_17__.NbTimepickerModule.forRoot(),
             _nebular_theme__WEBPACK_IMPORTED_MODULE_17__.NbDialogModule.forRoot(),
             _nebular_theme__WEBPACK_IMPORTED_MODULE_17__.NbWindowModule.forRoot(),
             _nebular_theme__WEBPACK_IMPORTED_MODULE_17__.NbToastrModule.forRoot(),
@@ -4808,7 +4809,7 @@ AppModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_12__["ɵ�
         _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_16__.BrowserAnimationsModule,
         _angular_common_http__WEBPACK_IMPORTED_MODULE_13__.HttpClientModule,
         _app_routing_module__WEBPACK_IMPORTED_MODULE_4__.AppRoutingModule,
-        _app_auth_auth_module__WEBPACK_IMPORTED_MODULE_2__.NgxAuthModule, _nebular_theme__WEBPACK_IMPORTED_MODULE_17__.NbSidebarModule, _nebular_theme__WEBPACK_IMPORTED_MODULE_17__.NbMenuModule, _nebular_theme__WEBPACK_IMPORTED_MODULE_17__.NbDatepickerModule, _nebular_theme__WEBPACK_IMPORTED_MODULE_17__.NbDialogModule, _nebular_theme__WEBPACK_IMPORTED_MODULE_17__.NbWindowModule, _nebular_theme__WEBPACK_IMPORTED_MODULE_17__.NbToastrModule, _nebular_theme__WEBPACK_IMPORTED_MODULE_17__.NbChatModule, _core_core_module__WEBPACK_IMPORTED_MODULE_0__.CoreModule, _theme_theme_module__WEBPACK_IMPORTED_MODULE_1__.ThemeModule, _nebular_auth__WEBPACK_IMPORTED_MODULE_18__.NbAuthModule] }); })();
+        _app_auth_auth_module__WEBPACK_IMPORTED_MODULE_2__.NgxAuthModule, _nebular_theme__WEBPACK_IMPORTED_MODULE_17__.NbSidebarModule, _nebular_theme__WEBPACK_IMPORTED_MODULE_17__.NbMenuModule, _nebular_theme__WEBPACK_IMPORTED_MODULE_17__.NbDatepickerModule, _nebular_theme__WEBPACK_IMPORTED_MODULE_17__.NbTimepickerModule, _nebular_theme__WEBPACK_IMPORTED_MODULE_17__.NbDialogModule, _nebular_theme__WEBPACK_IMPORTED_MODULE_17__.NbWindowModule, _nebular_theme__WEBPACK_IMPORTED_MODULE_17__.NbToastrModule, _nebular_theme__WEBPACK_IMPORTED_MODULE_17__.NbChatModule, _core_core_module__WEBPACK_IMPORTED_MODULE_0__.CoreModule, _theme_theme_module__WEBPACK_IMPORTED_MODULE_1__.ThemeModule, _nebular_auth__WEBPACK_IMPORTED_MODULE_18__.NbAuthModule] }); })();
 
 
 /***/ }),

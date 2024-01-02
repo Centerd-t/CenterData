@@ -15,7 +15,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent implements OnInit {
-  
+
   AddCenterDataForm: FormGroup;
 
   itemsPerPage: any[] = [10, 25, 50];
@@ -42,35 +42,36 @@ export class UserListComponent implements OnInit {
       { field: "date", header: "Date", show: true, sort: true },
     ];
 
-    
+
   }
 
   /**
    * CenterData Form Initialize
    */
 
-AddCenterDataFormInitialize() {
-  const currentDate = new Date();
-  currentDate.setHours(0, 0, 0); // Set time to 00:00:00
+  AddCenterDataFormInitialize() {
+    // const currentDate = new Date();
+    // currentDate.setHours(0, 0, 0); // Set time to 00:00:00
 
-  this.AddCenterDataForm = this.formBuilder.group({
-    date: [currentDate, [Validators.required]],
-  });
-}
+    this.AddCenterDataForm = this.formBuilder.group({
+      date: [null, [Validators.required]],
+      period: [null, [Validators.required]],
+    });
+  }
   /**
    * Download File 
    * @param 
    * @returns
    */
-//   downloadFile(user: any) {
-//     let byteArray = UintArray.from
-//     atob(base64String)
-// • split('')
-// • map(char => char.charCodeAt(0))
+  //   downloadFile(user: any) {
+  //     let byteArray = UintArray.from
+  //     atob(base64String)
+  // • split('')
+  // • map(char => char.charCodeAt(0))
 
-//     let blobfile = new Blob([byteArray], { type: 'application/pdf' });
-//     saveAs(blobfile, filename.extension)
-//   }
+  //     let blobfile = new Blob([byteArray], { type: 'application/pdf' });
+  //     saveAs(blobfile, filename.extension)
+  //   }
 
   ondownloadFile(fileName: string, byteCode: string | null) {
     if (byteCode) {
@@ -89,9 +90,14 @@ AddCenterDataFormInitialize() {
    */
   onSubmit() {
 
-     const selectedDate = this.datePipe.transform(this.AddCenterDataForm.value.date, 'yyyy-MM-ddTHH:mm:ss');
+    const selectedDate = this.datePipe.transform(this.AddCenterDataForm.value.date, 'yyyy-MM-dd');
+    const selectedPeriod = this.AddCenterDataForm.value.period;
 
-    this.userService.getCenterDataList(selectedDate).subscribe(
+    // Combine date, time, and period
+    const combinedDateTime = `${selectedDate} ${selectedPeriod}`;
+
+
+    this.userService.getCenterDataList(combinedDateTime).subscribe(
       (response) => {
         this.users = response;
         if (HttpStatusCode.Ok) {

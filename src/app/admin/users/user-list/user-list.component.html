@@ -2,30 +2,44 @@
 
     <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
     <nb-card-header>
-<div class="card && text-center" >
-                <form [formGroup]="AddCenterDataForm" (ngSubmit)="onSubmit()"> <br>
-                    <div class="form-group row">
-                        <label for="date" class="label col-sm-4 col-form-label"> Enter Date and Time*</label>
-                        <div class="col-sm-3">
-                            <p-calendar [showTime]="true" [showSeconds]="false" [hourFormat]="12" formControlName="date"></p-calendar>
-                            <ng-container
-                                *ngIf="AddCenterDataForm.controls.date.touched && AddCenterDataForm.controls.date.errors">
-                                <p class="caption status-danger"
-                                    *ngIf="AddCenterDataForm.controls.date.errors.required">
-                                    Date is required </p>
-                            </ng-container>
-                        </div>
-                        <div class=" col-sm-2">
-                            <button type="submit" nbButton outline status="success" size="small"
-                                [disabled]="!AddCenterDataForm.valid">Submit</button>
-                        </div>
-
+        <div class="card  text-center">
+            <form [formGroup]="AddCenterDataForm" (ngSubmit)="onSubmit()"> <br>
+                <div class="form-group row">
+                    <label for="date" class="label col-sm-2 col-form-label"> Select Date*</label>
+                    <div class="col-sm-3">
+                        <input nbInput fullWidth placeholder="Select Date" formControlName="date"
+                            [nbDatepicker]="dateTimePicker">
+                        <nb-datepicker #dateTimePicker format="dd.MM.yyyy"></nb-datepicker>
+                        <ng-container
+                            *ngIf="AddCenterDataForm.controls.date.touched && AddCenterDataForm.controls.date.errors">
+                            <p class="caption status-danger" *ngIf="AddCenterDataForm.controls.date.errors.required">
+                                Date is required </p>
+                        </ng-container>
                     </div>
-                </form>
-            </div> <br> 
-            <div class="row">
-                <div class="col-md-12 text-center bold-text"> CenterDate  List </div>
-            </div>
+                    <label for="period" class="label col-sm-2 col-form-label"> Select Period*</label>
+                    <div class="col-sm-2">
+                        <nb-select nbSelect placeholder="Select" formControlName="period">
+                            <nb-option value="AM">AM</nb-option>
+                            <nb-option value="PM">PM</nb-option>
+                        </nb-select>
+                        <ng-container
+                            *ngIf="AddCenterDataForm.controls.period.touched && AddCenterDataForm.controls.period.errors">
+                            <p class="caption status-danger" *ngIf="AddCenterDataForm.controls.period.errors.required">
+                                Period is required </p>
+                        </ng-container>
+                    </div>
+
+                    <div class=" col-sm-3">
+                        <button type="submit" nbButton outline status="success" size="medium">Submit</button>
+                    </div>
+                </div>
+
+
+            </form>
+        </div> <br>
+        <div class="row">
+            <div class="col-md-12 text-center bold-text"> CenterDate List </div>
+        </div>
     </nb-card-header>
 
     <nb-card-body>
@@ -51,7 +65,8 @@
                 <ng-template pTemplate="body" let-user>
                     <tr>
                         <td nbTooltip="{{ user.fileName }}" nbTooltipPlacement="top">{{user.fileName}}</td>
-                        <td nbTooltip="{{ user.date }}" nbTooltipPlacement="top">{{user.date | date: 'dd/MM/yyyy' }}</td>
+                        <td nbTooltip="{{ user.date }}" nbTooltipPlacement="top">{{user.date | date: 'dd/MM/yyyy' }}
+                        </td>
                         <td class="text-center action">
                             <button (click)="ondownloadFile(user.fileName, user.byteCode)" nbTooltip="Download"
                                 nbTooltipPlacement="top" class="btn btn-outline-success btn-sm action-button">

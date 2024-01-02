@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { NbMenuModule } from '@nebular/theme';
+import { NbDatepickerModule, NbMenuModule, NbTimepickerModule } from '@nebular/theme';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -53,9 +53,11 @@ import { UserListComponent } from './user-list/user-list.component';
   imports: [
     CommonModule,
     HttpClientModule,
-    CalendarModule,
+    NbDatepickerModule,
+    NbTimepickerModule,
     NbActionsModule,
     NbAlertModule,
+    CalendarModule,
     NbCalendarKitModule,
     NbCalendarModule,
     NbCalendarRangeModule,
