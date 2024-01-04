@@ -1,5 +1,6 @@
 /** 
 *This component file containes functions related to request password
+* author: T.Nanda Kumar
 */
 import { NbAuthResult, NbAuthService,NB_AUTH_OPTIONS} from '@nebular/auth';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject } from '@angular/core';

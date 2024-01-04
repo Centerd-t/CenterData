@@ -1,7 +1,7 @@
 /**
  * This file containes functions related to logout
  * 
- * author : Gowtham Rangaraju
+ * author : T.Nanda Kumar
  */
 import { Component, Input} from '@angular/core';
 import { NbLogoutComponent } from '@nebular/auth';

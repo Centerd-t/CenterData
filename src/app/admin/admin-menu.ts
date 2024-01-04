@@ -2,7 +2,7 @@ import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
-    title: 'CSV File Download',
+    title: 'File Download',
     icon: 'cloud-download-outline',
     link: '/admin/users',
     home: true,

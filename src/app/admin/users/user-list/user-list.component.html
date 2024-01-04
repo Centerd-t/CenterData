@@ -2,6 +2,9 @@
 
     <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
     <nb-card-header>
+        <div class="row">
+            <div class="col-md-12 text-center bold-text"> CenterDate List </div>
+        </div> <br>
         <div class="card  text-center">
             <form [formGroup]="AddCenterDataForm" (ngSubmit)="onSubmit()"> <br>
                 <div class="form-group row">
@@ -9,74 +12,82 @@
                     <div class="col-sm-3">
                         <input nbInput fullWidth placeholder="Select Date" formControlName="date"
                             [nbDatepicker]="dateTimePicker">
-                        <nb-datepicker #dateTimePicker format="dd.MM.yyyy"></nb-datepicker>
+                        <nb-datepicker #dateTimePicker></nb-datepicker>
                         <ng-container
                             *ngIf="AddCenterDataForm.controls.date.touched && AddCenterDataForm.controls.date.errors">
                             <p class="caption status-danger" *ngIf="AddCenterDataForm.controls.date.errors.required">
                                 Date is required </p>
                         </ng-container>
                     </div>
-                    <label for="period" class="label col-sm-2 col-form-label"> Select Period*</label>
+                    <label for="session" class="label col-sm-2 col-form-label"> Select Session*</label>
                     <div class="col-sm-2">
-                        <nb-select nbSelect placeholder="Select" formControlName="period">
+                        <nb-select nbSelect placeholder="Select" formControlName="session">
                             <nb-option value="AM">AM</nb-option>
                             <nb-option value="PM">PM</nb-option>
                         </nb-select>
                         <ng-container
-                            *ngIf="AddCenterDataForm.controls.period.touched && AddCenterDataForm.controls.period.errors">
-                            <p class="caption status-danger" *ngIf="AddCenterDataForm.controls.period.errors.required">
-                                Period is required </p>
+                            *ngIf="AddCenterDataForm.controls.session.touched && AddCenterDataForm.controls.session.errors">
+                            <p class="caption status-danger" *ngIf="AddCenterDataForm.controls.session.errors.required">
+                                Session is required </p>
                         </ng-container>
                     </div>
 
                     <div class=" col-sm-3">
-                        <button type="submit" nbButton outline status="success" size="medium">Submit</button>
+                        <button type="submit" nbButton outline status="success" size="medium"
+                            [disabled]="!AddCenterDataForm.valid">Submit</button>
                     </div>
                 </div>
-
-
             </form>
-        </div> <br>
-        <div class="row">
-            <div class="col-md-12 text-center bold-text"> CenterDate List </div>
         </div>
     </nb-card-header>
-
     <nb-card-body>
+        <div class="text-center" *ngIf="!users || users.length === 0">
+            <h5>No Data Found !</h5>
+        </div>
+        <div class="card" *ngIf="users && users.length > 0">
+            <div class="card">
+                <p-table [value]="users" [resizableColumns]="true" [scrollable]="true" scrollHeight="400px"
+                    [paginator]="true" [rows]="rows" [showCurrentPageReport]="true" [autoLayout]="true"
+                    [rowsPerPageOptions]="itemsPerPage">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <ng-container *ngFor="let col of columns">
+                                <th *ngIf="col.show" pResizableColumn
+                                    [pSortableColumn]="(col.sort==true)? col.field:false"
+                                    [class]="col.field+'-campaigns'" class="text-center">
+                                    <p-sortIcon *ngIf="col.sort==true" [field]="col.field" class="sort-icon"
+                                        [id]="col.field+'-sort'">
+                                    </p-sortIcon>
+                                    <span>{{col.header}}</span>
+                                </th>
+                            </ng-container>
+                            <th class="text-center">Actions</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-user>
+                        <tr>
+                            <td class="text-center">{{user.date |
+                                date:
+                                'dd.MM.yyyy - HH:mm' }}</td>
+                            <td class="text-center">
+                                {{user.fileName}}</td>
+                            <td class="text-center action">
+                                <button (click)="ondownloadFile(user.fileName, user.byteCode)"
+                                    class="btn btn-outline-success btn-sm action-button">
+                                    Download
+                                    <nb-icon icon="download-outline" pack="eva" class="action-icons"></nb-icon>
+                                </button>&nbsp;
+                            </td>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="emptymessage">
+                        <tr>
+                            <td colspan="3" class="text-center">No Data Found.</td>
 
-        <div class="card">
-            <p-table [value]="users" [resizableColumns]="true" [scrollable]="true" scrollHeight="400px"
-                [paginator]="true" [rows]="rows" [showCurrentPageReport]="true" [autoLayout]="true"
-                [rowsPerPageOptions]="itemsPerPage">
-                <ng-template pTemplate="header">
-                    <tr>
-                        <ng-container *ngFor="let col of columns">
-                            <th *ngIf="col.show" pResizableColumn [pSortableColumn]="(col.sort==true)? col.field:false"
-                                [class]="col.field+'-campaigns'" class="text-center">
-                                <p-sortIcon *ngIf="col.sort==true" [field]="col.field" class="sort-icon"
-                                    [id]="col.field+'-sort'">
-                                </p-sortIcon>
-                                <span>{{col.header}}</span>
-                            </th>
-                        </ng-container>
-                        <th class="text-center">Actions</th>
-                    </tr>
-                </ng-template>
-                <ng-template pTemplate="body" let-user>
-                    <tr>
-                        <td nbTooltip="{{ user.fileName }}" nbTooltipPlacement="top">{{user.fileName}}</td>
-                        <td nbTooltip="{{ user.date }}" nbTooltipPlacement="top">{{user.date | date: 'dd/MM/yyyy' }}
-                        </td>
-                        <td class="text-center action">
-                            <button (click)="ondownloadFile(user.fileName, user.byteCode)" nbTooltip="Download"
-                                nbTooltipPlacement="top" class="btn btn-outline-success btn-sm action-button">
-                                Download
-                                <nb-icon icon="download-outline" pack="eva" class="action-icons"></nb-icon>
-                            </button>&nbsp;
-                        </td>
-                    </tr>
-                </ng-template>
-            </p-table>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
         </div>
     </nb-card-body>
 </nb-card>

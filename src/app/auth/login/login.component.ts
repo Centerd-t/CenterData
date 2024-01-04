@@ -1,6 +1,6 @@
 /** 
 * This file contains login related functions
-* author: Gowtham rangaraju
+* author: T.Nanda Kumar
 */
 
 import { NbLoginComponent, NbAuthResult, NbAuthSocialLink, NbAuthService, NB_AUTH_OPTIONS } from '@nebular/auth';

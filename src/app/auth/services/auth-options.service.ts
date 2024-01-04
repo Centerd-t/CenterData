@@ -1,5 +1,5 @@
 /** This file containes authentication and login related functions 
-* author : Gowtham Rangaraju
+* author : T.Nanda Kumar
 */
 import {Injectable} from "@angular/core";
 import { HttpClient } from "@angular/common/http";

@@ -1,6 +1,6 @@
 /** 
 * This file containes functions and templates related to reset password 
-* author:Anish Mohan
+* author: T.Nanda Kumar
 */
 
 import { NbAuthResult, NbAuthService, NB_AUTH_OPTIONS } from '@nebular/auth';

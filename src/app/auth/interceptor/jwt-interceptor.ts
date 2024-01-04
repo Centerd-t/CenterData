@@ -1,6 +1,6 @@
 /* 
 *Interceptor file for adding jwt token on every http post request
-* dev : Gowtham Rangaraju
+* dev : T.Nanda Kumar
 */
 import { Inject, Injectable, Injector, InjectionToken } from '@angular/core';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpErrorResponse } from '@angular/common/http';
@@ -64,12 +64,12 @@ export class HttpErrorInterceptor implements HttpInterceptor {
             .pipe(
                 retry(0),
                 catchError((error: HttpErrorResponse) => {
-                    // if (error.status ==401){
-                    //     this.toastrService.show("Unautherized", "Warn", { status: "warning", duration: 10000 });
-                    //     let user_type = localStorage.getItem('user_type');
-                    //     localStorage.clear()
-                    //     this.router.navigateByUrl('/auth/' + user_type+"/login");
-                    // }
+                    if (error.status ==401){
+                        this.toastrService.show("Unautherized", "Warn", { status: "warning", duration: 10000 });
+                        let user_type = localStorage.getItem('user_type');
+                        localStorage.clear()
+                        this.router.navigateByUrl('/auth/' + user_type+"/login");
+                    }
                     if (error.status == 401) {
                         window.confirm("Something Went Wrong! internal Server Error");
                     }

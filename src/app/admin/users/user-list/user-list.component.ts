@@ -1,11 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ROUTER_CONFIGURATION } from "@angular/router";
-import { NbToastrService } from "@nebular/theme";
-import { ConfirmationService } from 'primeng/api';
-import { NbDialogService } from '@nebular/theme';
-
 import { UsersService } from "../services/users.service";
-import { HttpStatusCode } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -26,8 +20,8 @@ export class UserListComponent implements OnInit {
   rows = 10;
   userid: any;
 
+
   constructor(
-    private toastrService: NbToastrService,
     private userService: UsersService,
     private datePipe: DatePipe,
     private formBuilder: FormBuilder,
@@ -38,11 +32,9 @@ export class UserListComponent implements OnInit {
     this.AddCenterDataFormInitialize();
     // table   with their respective field name and header value
     this.columns = [
-      { field: "name", header: "File Name", show: true, sort: true },
       { field: "date", header: "Date", show: true, sort: true },
+      { field: "name", header: "File Name", show: true, sort: true },
     ];
-
-
   }
 
   /**
@@ -50,29 +42,15 @@ export class UserListComponent implements OnInit {
    */
 
   AddCenterDataFormInitialize() {
-    // const currentDate = new Date();
-    // currentDate.setHours(0, 0, 0); // Set time to 00:00:00
-
     this.AddCenterDataForm = this.formBuilder.group({
       date: [null, [Validators.required]],
-      period: [null, [Validators.required]],
+      session: [null, [Validators.required]],
     });
   }
   /**
    * Download File 
-   * @param 
-   * @returns
+   * @bytecode
    */
-  //   downloadFile(user: any) {
-  //     let byteArray = UintArray.from
-  //     atob(base64String)
-  // • split('')
-  // • map(char => char.charCodeAt(0))
-
-  //     let blobfile = new Blob([byteArray], { type: 'application/pdf' });
-  //     saveAs(blobfile, filename.extension)
-  //   }
-
   ondownloadFile(fileName: string, byteCode: string | null) {
     if (byteCode) {
       const blob = new Blob([atob(byteCode)], { type: 'text/csv' });
@@ -91,28 +69,13 @@ export class UserListComponent implements OnInit {
   onSubmit() {
 
     const selectedDate = this.datePipe.transform(this.AddCenterDataForm.value.date, 'yyyy-MM-dd');
-    const selectedPeriod = this.AddCenterDataForm.value.period;
+    const selectedSession = this.AddCenterDataForm.value.session;
 
-    // Combine date, time, and period
-    const combinedDateTime = `${selectedDate} ${selectedPeriod}`;
-
-
-    this.userService.getCenterDataList(combinedDateTime).subscribe(
+    this.userService.getCenterDataList(selectedDate, selectedSession).subscribe(
       (response) => {
         this.users = response;
-        if (HttpStatusCode.Ok) {
-          this.toastrService.show(response["message"], "Success", {
-            status: "success",
-            duration: 8000,
-          });
-        } else {
-          this.toastrService.show(response["message"], "Warning", {
-            status: "warning",
-            duration: 8000,
-          });
-        }
       },
-      (error) => {
+            (error) => {
         console.log(error);
       }
     );

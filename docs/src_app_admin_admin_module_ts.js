@@ -13,7 +13,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 const MENU_ITEMS = [
     {
-        title: 'CSV File Download',
+        title: 'File Download',
         icon: 'cloud-download-outline',
         link: '/admin/users',
         home: true,

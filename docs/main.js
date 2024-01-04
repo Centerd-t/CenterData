@@ -4558,31 +4558,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "AppRoutingModule": () => (/* binding */ AppRoutingModule),
 /* harmony export */   "routes": () => (/* binding */ routes)
 /* harmony export */ });
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ 2816);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 3184);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ 2816);
+/* harmony import */ var _auth_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./auth/services/auth-guard.service */ 9882);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 3184);
+
 
 
 
 const routes = [
-    // {
-    //   path: 'pages',
-    //   loadChildren: () => import('./pages/pages.module')
-    //     .then(m => m.PagesModule),
-    //     canActivate: [AuthGuard]
-    // },  
     {
         path: 'admin',
         loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_admin_admin_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./admin/admin.module */ 7095))
             .then(m => m.AdminModule),
-        // canActivate: [AuthGuard]
+        canActivate: [_auth_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_0__.AuthGuard]
     },
     {
         path: 'auth',
         loadChildren: () => Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ./auth/auth.module */ 1674))
             .then(m => m.NgxAuthModule),
     },
-    { path: '', redirectTo: 'admin', pathMatch: 'full' },
-    { path: '**', redirectTo: 'admin' },
+    { path: '', redirectTo: 'auth', pathMatch: 'full' },
+    { path: '**', redirectTo: 'auth' },
 ];
 const config = {
     useHash: false,
@@ -4590,9 +4586,9 @@ const config = {
 class AppRoutingModule {
 }
 AppRoutingModule.ɵfac = function AppRoutingModule_Factory(t) { return new (t || AppRoutingModule)(); };
-AppRoutingModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: AppRoutingModule });
-AppRoutingModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_1__.RouterModule.forRoot(routes, config)], _angular_router__WEBPACK_IMPORTED_MODULE_1__.RouterModule] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](AppRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__.RouterModule], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__.RouterModule] }); })();
+AppRoutingModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({ type: AppRoutingModule });
+AppRoutingModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({ imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterModule.forRoot(routes, config)], _angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterModule] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterModule], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterModule] }); })();
 
 
 /***/ }),
@@ -5242,12 +5238,12 @@ class HttpErrorInterceptor {
     intercept(request, next) {
         return next.handle(request)
             .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_4__.retry)(0), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_5__.catchError)((error) => {
-            // if (error.status ==401){
-            //     this.toastrService.show("Unautherized", "Warn", { status: "warning", duration: 10000 });
-            //     let user_type = localStorage.getItem('user_type');
-            //     localStorage.clear()
-            //     this.router.navigateByUrl('/auth/' + user_type+"/login");
-            // }
+            if (error.status == 401) {
+                this.toastrService.show("Unautherized", "Warn", { status: "warning", duration: 10000 });
+                let user_type = localStorage.getItem('user_type');
+                localStorage.clear();
+                this.router.navigateByUrl('/auth/' + user_type + "/login");
+            }
             if (error.status == 401) {
                 window.confirm("Something Went Wrong! internal Server Error");
             }
@@ -5288,7 +5284,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ 587);
 /**
 * This file contains login related functions
-* author: Gowtham rangaraju
+* author: T.Nanda Kumar
 */
 
 
@@ -5998,6 +5994,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ 587);
 /**
 *This component file containes functions related to request password
+* author: T.Nanda Kumar
 */
 
 
@@ -6224,7 +6221,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ 587);
 /**
 * This file containes functions and templates related to reset password
-* author:Anish Mohan
+* author: T.Nanda Kumar
 */
 
 
@@ -6806,7 +6803,7 @@ __webpack_require__.r(__webpack_exports__);
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 const environment = {
     production: false,
-    apiUrl: "https://localhost:7034/"
+    apiUrl: "https://cowma.vewinpro.com/"
 };
 
 

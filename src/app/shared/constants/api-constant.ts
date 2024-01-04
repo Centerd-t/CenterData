@@ -11,7 +11,7 @@ export const API_END_POINTS = {
   //   BLOCK_UBLOCK: "company/blockUnblock",
   // },
   USER: {
-    LIST: "Api/CenterData/AllFile",
+    LIST: "Api/CenterData/AllFiles",
   },
 
 };
