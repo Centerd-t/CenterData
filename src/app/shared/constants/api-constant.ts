@@ -13,7 +13,9 @@ export const API_END_POINTS = {
   USER: {
     LIST: "Api/CenterData/AllFiles",
   },
-
+LOGIN:{
+  UPDATE:"api/UpdateLogin"
+}
 };
 
 export function getApiEndPoint(path: string, data?: any) {

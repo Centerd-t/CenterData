@@ -30,7 +30,7 @@ import {
   NbToggleModule, 
   NbContextMenuModule,
 } from '@nebular/theme';
-
+import { NbMomentDateModule} from '@nebular/moment';
 import { ThemeModule } from '../../@theme/theme.module';
 
 // Interceptor
@@ -43,17 +43,20 @@ import { DialogModule } from 'primeng/dialog';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 import { CalendarModule } from 'primeng/calendar';
+import { PasswordModule } from 'primeng/password';
 
 import { UsersRoutingModule } from './users-routing.module';
 import { UserListComponent } from './user-list/user-list.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 
 @NgModule({
-  declarations: [UserListComponent],
+  declarations: [UserListComponent,ChangePasswordComponent],
   imports: [
     CommonModule,
     HttpClientModule,
     NbDatepickerModule,
+    NbMomentDateModule,
     NbTimepickerModule,
     NbActionsModule,
     NbAlertModule,
@@ -61,6 +64,7 @@ import { UserListComponent } from './user-list/user-list.component';
     NbCalendarKitModule,
     NbCalendarModule,
     NbCalendarRangeModule,
+    PasswordModule,
     NbFormFieldModule,
     NbProgressBarModule,
     NbSpinnerModule,

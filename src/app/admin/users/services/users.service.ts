@@ -32,10 +32,10 @@ export class UsersService {
    * CenterData List
    * @returns
    */
- getCenterDataList(selectedDate: string,selectedSession:string): Observable<any> {
+  getCenterDataList(selectedDate: string, selectedSession: string): Observable<any> {
     let apiURL = getApiEndPoint(API_END_POINTS.USER.LIST);
-        const urlWithParams = `${apiURL}?Date=${selectedDate}&session=${selectedSession}`;
-    return this.userServicehttp.post(urlWithParams,null).pipe(
+    const urlWithParams = `${apiURL}?Date=${selectedDate}&session=${selectedSession}`;
+    return this.userServicehttp.post(urlWithParams, null).pipe(
       switchMap((result: any) => {
         if (result) {
           return of(result);

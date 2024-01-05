@@ -1,11 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NbMediaBreakpointsService, NbMenuItem, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
+import { NbDialogService, NbMediaBreakpointsService, NbMenuItem, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
 
 import { UserData } from '../../../@core/data/users';
 import { LayoutService } from '../../../@core/utils';
-import { map, takeUntil } from 'rxjs/operators';
+import { map, takeUntil, filter } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
+import { ChangePasswordComponent } from '../../../admin/users/change-password/change-password.component';
 
 @Component({
   selector: 'ngx-header',
@@ -40,11 +41,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   currentTheme = 'default';
 
   userMenu: NbMenuItem[] = [
-    // {
-    //   title: 'Profile',
-    //   link: '',
-    //   icon: 'person-outline',
-    // },
+    {
+      title: 'Change Password',
+      // link: '/admin/users/change-password',
+      icon: 'sync-outline',
+    },
     {
       title: 'Log out',
       link: '/auth/admin/logout',
@@ -57,7 +58,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private userService: UserData,
     private layoutService: LayoutService,
     private breakpointService: NbMediaBreakpointsService,
-    private router: Router,) {
+    private router: Router,
+    private dialogService: NbDialogService) {
   }
 
   ngOnInit() {
@@ -81,8 +83,23 @@ export class HeaderComponent implements OnInit, OnDestroy {
         takeUntil(this.destroy$),
       )
       .subscribe(themeName => this.currentTheme = themeName);
-  }
 
+    this.menuService.onItemClick()
+      .pipe(
+        filter(({ tag }) => tag === 'my-context-menu'),
+        map(({ item: { title } }) => title),
+      )
+      .subscribe(title => {
+        console.log('hi');
+        this.changePasswordDialog()
+      });
+
+  }
+  changePasswordDialog() {
+    this.dialogService.open(ChangePasswordComponent, {
+      context: { },
+    });
+  }
   ngOnDestroy() {
     this.destroy$.next();
     this.destroy$.complete();
