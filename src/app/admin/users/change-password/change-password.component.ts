@@ -87,6 +87,7 @@ export class ChangePasswordComponent implements OnInit {
               duration: 8000,
             });
             this.submitted = true;
+            this.dialogRef.close();
           }
           else if (HttpStatusCode.BadRequest) {
             this.toastrService.show(response.statusMessage, 'Danger', {

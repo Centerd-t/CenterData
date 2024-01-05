@@ -4695,6 +4695,7 @@ class ChangePasswordComponent {
                     duration: 8000,
                 });
                 this.submitted = true;
+                this.dialogRef.close();
             }
             else {}
         }, (error) => {
