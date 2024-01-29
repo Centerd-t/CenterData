@@ -210,9 +210,20 @@ class UserListComponent {
         this.itemsPerPage = [10, 25, 50];
         this.first = 0;
         this.rows = 10;
+        //Change value to hide table
+        this.showTable = false;
     }
     ngOnInit() {
+        var _a, _b;
         this.AddCenterDataFormInitialize();
+        // Add event listener to name field Change value to hide table
+        (_a = this.AddCenterDataForm.get('date')) === null || _a === void 0 ? void 0 : _a.valueChanges.subscribe(() => {
+            this.showTable = true;
+        });
+        // Add event listener to monthAndYear field Change value to hide table 
+        (_b = this.AddCenterDataForm.get('session')) === null || _b === void 0 ? void 0 : _b.valueChanges.subscribe(() => {
+            this.showTable = true;
+        });
         // table   with their respective field name and header value
         this.columns = [
             { field: "date", header: "Date", show: true, sort: true },
@@ -251,6 +262,7 @@ class UserListComponent {
         const selectedSession = this.AddCenterDataForm.value.session;
         this.userService.getCenterDataList(selectedDate, selectedSession).subscribe((response) => {
             this.users = response;
+            this.showTable = false;
         }, (error) => {
             console.log(error);
         });
@@ -307,9 +319,9 @@ UserListComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("disabled", !ctx.AddCenterDataForm.valid);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", !ctx.users || ctx.users.length === 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", !ctx.users || ctx.users.length === 0 || ctx.showTable);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.users && ctx.users.length > 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.users && ctx.users.length > 0 && !ctx.showTable);
     } }, directives: [_nebular_theme__WEBPACK_IMPORTED_MODULE_4__.NbCardComponent, primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_5__.ConfirmDialog, _nebular_theme__WEBPACK_IMPORTED_MODULE_4__.NbCardHeaderComponent, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormGroupDirective, _nebular_theme__WEBPACK_IMPORTED_MODULE_4__.NbInputDirective, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.DefaultValueAccessor, _nebular_theme__WEBPACK_IMPORTED_MODULE_4__.NbDatepickerDirective, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormControlName, _nebular_theme__WEBPACK_IMPORTED_MODULE_4__.NbDatepickerComponent, _angular_common__WEBPACK_IMPORTED_MODULE_3__.NgIf, _nebular_theme__WEBPACK_IMPORTED_MODULE_4__.NbSelectComponent, _nebular_theme__WEBPACK_IMPORTED_MODULE_4__.NbOptionComponent, _nebular_theme__WEBPACK_IMPORTED_MODULE_4__.NbButtonComponent, _nebular_theme__WEBPACK_IMPORTED_MODULE_4__.NbCardBodyComponent, primeng_table__WEBPACK_IMPORTED_MODULE_6__.Table, primeng_api__WEBPACK_IMPORTED_MODULE_7__.PrimeTemplate, _angular_common__WEBPACK_IMPORTED_MODULE_3__.NgForOf, primeng_table__WEBPACK_IMPORTED_MODULE_6__.ResizableColumn, primeng_table__WEBPACK_IMPORTED_MODULE_6__.SortableColumn, primeng_table__WEBPACK_IMPORTED_MODULE_6__.SortIcon, _nebular_theme__WEBPACK_IMPORTED_MODULE_4__.NbIconComponent], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_3__.DatePipe], styles: [".bold-text[_ngcontent-%COMP%] {\n  font-size: larger;\n}\n\n.custom-center[_ngcontent-%COMP%] {\n  text-align: center !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInVzZXItbGlzdC5jb21wb25lbnQuc2NzcyIsIi4uXFwuLlxcLi5cXC4uXFwuLlxcLi5cXC4uXFxBbmd1bGFyJTIwUHJvamVjdFxcQ2VudGVyRGF0YVxcc3JjXFxhcHBcXGFkbWluXFx1c2Vyc1xcdXNlci1saXN0XFx1c2VyLWxpc3QuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxpQkFBQTtBQ0NGOztBRENBO0VBQ0UsNkJBQUE7QUNFRiIsImZpbGUiOiJ1c2VyLWxpc3QuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYm9sZC10ZXh0IHtcclxuICBmb250LXNpemU6IGxhcmdlcjtcclxufVxyXG4uY3VzdG9tLWNlbnRlciB7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbiIsIi5ib2xkLXRleHQge1xuICBmb250LXNpemU6IGxhcmdlcjtcbn1cblxuLmN1c3RvbS1jZW50ZXIge1xuICB0ZXh0LWFsaWduOiBjZW50ZXIgIWltcG9ydGFudDtcbn0iXX0= */"] });
 
 

@@ -19,7 +19,8 @@ export class UserListComponent implements OnInit {
   first = 0;
   rows = 10;
   userid: any;
-
+  //Change value to hide table
+  showTable = false;
 
   constructor(
     private userService: UsersService,
@@ -30,6 +31,17 @@ export class UserListComponent implements OnInit {
 
   ngOnInit() {
     this.AddCenterDataFormInitialize();
+
+    // Add event listener to name field Change value to hide table
+    this.AddCenterDataForm.get('date')?.valueChanges.subscribe(() => {
+      this.showTable = true;
+    });
+
+    // Add event listener to monthAndYear field Change value to hide table 
+    this.AddCenterDataForm.get('session')?.valueChanges.subscribe(() => {
+      this.showTable = true;
+    });
+
     // table   with their respective field name and header value
     this.columns = [
       { field: "date", header: "Date", show: true, sort: true },
@@ -74,8 +86,9 @@ export class UserListComponent implements OnInit {
     this.userService.getCenterDataList(selectedDate, selectedSession).subscribe(
       (response) => {
         this.users = response;
+        this.showTable = false;
       },
-            (error) => {
+      (error) => {
         console.log(error);
       }
     );

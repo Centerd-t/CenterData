@@ -41,10 +41,10 @@
         </div>
     </nb-card-header>
     <nb-card-body>
-        <div class="text-center" *ngIf="!users || users.length === 0">
+        <div class="text-center" *ngIf="!users || users.length === 0 || showTable">
             <h5>No Data Found !</h5>
         </div>
-        <div class="card" *ngIf="users && users.length > 0">
+        <div class="card" *ngIf="users && users.length > 0 && !showTable">
             <div class="card">
                 <p-table [value]="users" [resizableColumns]="true" [scrollable]="true" scrollHeight="400px"
                     [paginator]="true" [rows]="rows" [showCurrentPageReport]="true" [autoLayout]="true"
@@ -91,9 +91,3 @@
         </div>
     </nb-card-body>
 </nb-card>
-<!-- <ul> 
-  <li *ngFor="let file of users">
-    {{ file.fileName }}
-    <button (click)="downloadFile(file.fileName, file.byteCode)">Download</button>
-  </li>
-</ul> -->
