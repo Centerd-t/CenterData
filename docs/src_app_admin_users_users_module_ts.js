@@ -117,7 +117,7 @@ function UserListComponent_ng_container_26_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx_r2.AddCenterDataForm.controls.session.errors.required);
 } }
 function UserListComponent_div_31_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 21)(1, "h5");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 3)(1, "h5");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](2, "No Data Found !");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
 } }
@@ -153,8 +153,8 @@ function UserListComponent_div_32_ng_template_3_ng_container_1_Template(rf, ctx)
 } }
 function UserListComponent_div_32_ng_template_3_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "tr");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, UserListComponent_div_32_ng_template_3_ng_container_1_Template, 2, 1, "ng-container", 27);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "th", 21);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, UserListComponent_div_32_ng_template_3_ng_container_1_Template, 2, 1, "ng-container", 26);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "th", 27);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](3, "Actions");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
 } if (rf & 2) {
@@ -164,11 +164,11 @@ function UserListComponent_div_32_ng_template_3_Template(rf, ctx) { if (rf & 1) 
 } }
 function UserListComponent_div_32_ng_template_4_Template(rf, ctx) { if (rf & 1) {
     const _r18 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "tr")(1, "td", 21);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "tr")(1, "td", 27);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpipe"](3, "date");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](4, "td", 21);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](4, "td", 27);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](5);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](6, "td", 32)(7, "button", 33);
@@ -191,10 +191,10 @@ function UserListComponent_div_32_ng_template_5_Template(rf, ctx) { if (rf & 1) 
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
 } }
 function UserListComponent_div_32_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 22)(1, "div", 22)(2, "p-table", 23);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](3, UserListComponent_div_32_ng_template_3_Template, 4, 1, "ng-template", 24);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](4, UserListComponent_div_32_ng_template_4_Template, 11, 5, "ng-template", 25);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](5, UserListComponent_div_32_ng_template_5_Template, 3, 0, "ng-template", 26);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 21)(1, "div", 21)(2, "p-table", 22);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](3, UserListComponent_div_32_ng_template_3_Template, 4, 1, "ng-template", 23);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](4, UserListComponent_div_32_ng_template_4_Template, 11, 5, "ng-template", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](5, UserListComponent_div_32_ng_template_5_Template, 3, 0, "ng-template", 25);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()();
 } if (rf & 2) {
     const ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
@@ -211,7 +211,7 @@ class UserListComponent {
         this.first = 0;
         this.rows = 10;
         //Change value to hide table
-        this.showTable = false;
+        this.showTable = true;
     }
     ngOnInit() {
         var _a, _b;
@@ -269,11 +269,11 @@ class UserListComponent {
     }
 }
 UserListComponent.ɵfac = function UserListComponent_Factory(t) { return new (t || UserListComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_users_service__WEBPACK_IMPORTED_MODULE_0__.UsersService), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_common__WEBPACK_IMPORTED_MODULE_3__.DatePipe), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormBuilder)); };
-UserListComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: UserListComponent, selectors: [["ngx-user-list"]], decls: 33, vars: 10, consts: [[1, "inline-form-card", "full-card"], [1, "row"], [1, "col-md-12", "text-center", "bold-text"], [1, "card", "text-center"], [3, "formGroup", "ngSubmit"], [1, "form-group", "row"], ["for", "date", 1, "label", "col-sm-2", "col-form-label"], [1, "col-sm-3"], ["nbInput", "", "fullWidth", "", "placeholder", "Select Date", "formControlName", "date", 3, "nbDatepicker"], ["dateTimePicker", ""], [4, "ngIf"], ["for", "session", 1, "label", "col-sm-2", "col-form-label"], [1, "col-sm-2"], ["nbSelect", "", "placeholder", "Select", "formControlName", "session"], ["value", "AM"], ["value", "PM"], ["type", "submit", "nbButton", "", "outline", "", "status", "success", "size", "medium", 3, "disabled"], ["class", "text-center", 4, "ngIf"], ["class", "card", 4, "ngIf"], ["class", "caption status-danger", 4, "ngIf"], [1, "caption", "status-danger"], [1, "text-center"], [1, "card"], ["scrollHeight", "400px", 3, "value", "resizableColumns", "scrollable", "paginator", "rows", "showCurrentPageReport", "autoLayout", "rowsPerPageOptions"], ["pTemplate", "header"], ["pTemplate", "body"], ["pTemplate", "emptymessage"], [4, "ngFor", "ngForOf"], ["pResizableColumn", "", "class", "text-center", 3, "pSortableColumn", "class", 4, "ngIf"], ["pResizableColumn", "", 1, "text-center", 3, "pSortableColumn"], ["class", "sort-icon", 3, "field", "id", 4, "ngIf"], [1, "sort-icon", 3, "field", "id"], [1, "text-center", "action"], [1, "btn", "btn-outline-success", "btn-sm", "action-button", 3, "click"], ["icon", "download-outline", "pack", "eva", 1, "action-icons"], ["colspan", "3", 1, "text-center"]], template: function UserListComponent_Template(rf, ctx) { if (rf & 1) {
+UserListComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: UserListComponent, selectors: [["ngx-user-list"]], decls: 33, vars: 10, consts: [[1, "inline-form-card", "full-card"], [1, "row"], [1, "col-md-12", "text-center", "bold-text"], [1, "card", "text-center"], [3, "formGroup", "ngSubmit"], [1, "form-group", "row"], ["for", "date", 1, "label", "col-sm-2", "col-form-label"], [1, "col-sm-3"], ["nbInput", "", "fullWidth", "", "placeholder", "Select Date", "formControlName", "date", 3, "nbDatepicker"], ["dateTimePicker", ""], [4, "ngIf"], ["for", "session", 1, "label", "col-sm-2", "col-form-label"], [1, "col-sm-2"], ["nbSelect", "", "placeholder", "Select", "formControlName", "session"], ["value", "AM"], ["value", "PM"], ["type", "submit", "nbButton", "", "outline", "", "status", "success", "size", "medium", 3, "disabled"], ["class", "card text-center", 4, "ngIf"], ["class", "card", 4, "ngIf"], ["class", "caption status-danger", 4, "ngIf"], [1, "caption", "status-danger"], [1, "card"], ["scrollHeight", "400px", 3, "value", "resizableColumns", "scrollable", "paginator", "rows", "showCurrentPageReport", "autoLayout", "rowsPerPageOptions"], ["pTemplate", "header"], ["pTemplate", "body"], ["pTemplate", "emptymessage"], [4, "ngFor", "ngForOf"], [1, "text-center"], ["pResizableColumn", "", "class", "text-center", 3, "pSortableColumn", "class", 4, "ngIf"], ["pResizableColumn", "", 1, "text-center", 3, "pSortableColumn"], ["class", "sort-icon", 3, "field", "id", 4, "ngIf"], [1, "sort-icon", 3, "field", "id"], [1, "text-center", "action"], [1, "btn", "btn-outline-success", "btn-sm", "action-button", 3, "click"], ["icon", "download-outline", "pack", "eva", 1, "action-icons"], ["colspan", "3", 1, "text-center"]], template: function UserListComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "nb-card", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](1, "p-confirmDialog");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "nb-card-header")(3, "div", 1)(4, "div", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](5, " CenterDate List ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](5, " CenterData List ");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](6, "br");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](7, "div", 3)(8, "form", 4);
@@ -319,7 +319,7 @@ UserListComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("disabled", !ctx.AddCenterDataForm.valid);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", !ctx.users || ctx.users.length === 0 || ctx.showTable);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", !ctx.showTable && (!ctx.users || ctx.users.length === 0));
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.users && ctx.users.length > 0 && !ctx.showTable);
     } }, directives: [_nebular_theme__WEBPACK_IMPORTED_MODULE_4__.NbCardComponent, primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_5__.ConfirmDialog, _nebular_theme__WEBPACK_IMPORTED_MODULE_4__.NbCardHeaderComponent, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormGroupDirective, _nebular_theme__WEBPACK_IMPORTED_MODULE_4__.NbInputDirective, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.DefaultValueAccessor, _nebular_theme__WEBPACK_IMPORTED_MODULE_4__.NbDatepickerDirective, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.FormControlName, _nebular_theme__WEBPACK_IMPORTED_MODULE_4__.NbDatepickerComponent, _angular_common__WEBPACK_IMPORTED_MODULE_3__.NgIf, _nebular_theme__WEBPACK_IMPORTED_MODULE_4__.NbSelectComponent, _nebular_theme__WEBPACK_IMPORTED_MODULE_4__.NbOptionComponent, _nebular_theme__WEBPACK_IMPORTED_MODULE_4__.NbButtonComponent, _nebular_theme__WEBPACK_IMPORTED_MODULE_4__.NbCardBodyComponent, primeng_table__WEBPACK_IMPORTED_MODULE_6__.Table, primeng_api__WEBPACK_IMPORTED_MODULE_7__.PrimeTemplate, _angular_common__WEBPACK_IMPORTED_MODULE_3__.NgForOf, primeng_table__WEBPACK_IMPORTED_MODULE_6__.ResizableColumn, primeng_table__WEBPACK_IMPORTED_MODULE_6__.SortableColumn, primeng_table__WEBPACK_IMPORTED_MODULE_6__.SortIcon, _nebular_theme__WEBPACK_IMPORTED_MODULE_4__.NbIconComponent], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_3__.DatePipe], styles: [".bold-text[_ngcontent-%COMP%] {\n  font-size: larger;\n}\n\n.custom-center[_ngcontent-%COMP%] {\n  text-align: center !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInVzZXItbGlzdC5jb21wb25lbnQuc2NzcyIsIi4uXFwuLlxcLi5cXC4uXFwuLlxcLi5cXC4uXFxBbmd1bGFyJTIwUHJvamVjdFxcQ2VudGVyRGF0YVxcc3JjXFxhcHBcXGFkbWluXFx1c2Vyc1xcdXNlci1saXN0XFx1c2VyLWxpc3QuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxpQkFBQTtBQ0NGOztBRENBO0VBQ0UsNkJBQUE7QUNFRiIsImZpbGUiOiJ1c2VyLWxpc3QuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYm9sZC10ZXh0IHtcclxuICBmb250LXNpemU6IGxhcmdlcjtcclxufVxyXG4uY3VzdG9tLWNlbnRlciB7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbiIsIi5ib2xkLXRleHQge1xuICBmb250LXNpemU6IGxhcmdlcjtcbn1cblxuLmN1c3RvbS1jZW50ZXIge1xuICB0ZXh0LWFsaWduOiBjZW50ZXIgIWltcG9ydGFudDtcbn0iXX0= */"] });

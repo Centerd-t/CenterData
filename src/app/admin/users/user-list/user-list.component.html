@@ -3,7 +3,7 @@
     <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
     <nb-card-header>
         <div class="row">
-            <div class="col-md-12 text-center bold-text"> CenterDate List </div>
+            <div class="col-md-12 text-center bold-text"> CenterData List </div>
         </div> <br>
         <div class="card  text-center">
             <form [formGroup]="AddCenterDataForm" (ngSubmit)="onSubmit()"> <br>
@@ -41,8 +41,8 @@
         </div>
     </nb-card-header>
     <nb-card-body>
-        <div class="text-center" *ngIf="!users || users.length === 0 || showTable">
-            <h5>No Data Found !</h5>
+        <div class="card text-center" *ngIf="!showTable && (!users || users.length === 0)">
+                <h5>No Data Found !</h5>
         </div>
         <div class="card" *ngIf="users && users.length > 0 && !showTable">
             <div class="card">

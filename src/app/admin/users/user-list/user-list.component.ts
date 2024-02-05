@@ -20,7 +20,7 @@ export class UserListComponent implements OnInit {
   rows = 10;
   userid: any;
   //Change value to hide table
-  showTable = false;
+  showTable = true;
 
   constructor(
     private userService: UsersService,
